@@ -12,11 +12,21 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
 
-
 var app = express();
 
 const cors = require('cors');
 app.use(cors());
+
+// Autoriser des domaines spécifiques
+const corsOptions = {
+    origin: 'https://portfolio-frontend-beryl.vercel.app',
+};
+
+app.use(cors(corsOptions));
+
+// Vos routes ici
+
+app.listen(3000, () => console.log('Server running on port 3000'));
 
 app.use(logger('dev'));
 app.use(express.json());
