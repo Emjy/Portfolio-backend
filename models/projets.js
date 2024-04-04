@@ -7,10 +7,11 @@ const projetSchema = mongoose.Schema({
     collabs: [String],
     year: String,
     logo: String,
-    screens: [String],
+    screens: [{}],
     link: String,
     desc: String,
     projet: String,
+    story: String,
 
 });
 
