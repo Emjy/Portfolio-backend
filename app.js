@@ -11,6 +11,8 @@ require('./models/connection');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
+var projetRouter = require('./routes/projets');
+
 
 var app = express();
 
@@ -19,7 +21,7 @@ app.use(cors());
 
 // Autoriser des domaines spécifiques
 const corsOptions = {
-    origin: 'https://portfolio-frontend-beryl.vercel.app',
+    origin: ['https://portfolio-frontend-beryl.vercel.app', 'https://portfolio.emiliengiraud.fr'],
 };
 
 app.use(cors(corsOptions));
@@ -37,5 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/contact', contactRouter)
+app.use('/projets', projetRouter)
+
 
 module.exports = app;
