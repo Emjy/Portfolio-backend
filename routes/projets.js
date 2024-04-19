@@ -8,7 +8,7 @@ const Projet = require("../models/projets");
 router.get("/", async (req, res) => {
 
     try {
-        const projets = await Projet.find();
+        const projets = await Projet.find().sort({ Number: -1 });
 
         res.json({ result: true, projets });
     } catch (error) {
